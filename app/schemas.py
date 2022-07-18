@@ -2,6 +2,7 @@ from pydantic import BaseModel, EmailStr, conint
 from datetime import datetime
 from typing import Optional
 
+
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
@@ -14,11 +15,6 @@ class UserOut(BaseModel):
 
     class Config:
         orm_mode = True
-
-
-class UserLogin(BaseModel):
-    email: EmailStr
-    password: str
 
 
 class PostBase(BaseModel):
