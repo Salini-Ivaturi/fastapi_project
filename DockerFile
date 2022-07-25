@@ -1,6 +1,6 @@
 FROM python:3.10.5
 
-WORKDIR /usr/src/app
+WORKDIR /Users/santhosh/PycharmProjects/fastAPI
 
 COPY requirements.txt ./
 
