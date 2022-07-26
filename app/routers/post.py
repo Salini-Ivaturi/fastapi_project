@@ -1,16 +1,16 @@
 from fastapi import Response, status, HTTPException, Depends, APIRouter
-from app.schemas import PostCreate, Post, PostOut
+from app.schemas import PostCreate, Post
 from sqlalchemy.orm import Session
 from app import models, oauth2
 from app.database import get_db
-from typing import List, Optional
+from typing import Optional
 from sqlalchemy import func
 
 router = APIRouter(prefix="/posts", tags=['Posts'])
 
 
 # instead of using /posts everywhere in the path, we can make this more comfrotable by just adding the path inside the
-# APT router as a perfix and remove the /posts and just use /
+# APT router as a prefix and remove the /posts and just use /
 
 
 # @router.get("/", response_model=List[Post])
@@ -100,7 +100,6 @@ def update_posts(id: int, post: PostCreate, db: Session = Depends(get_db),
     #                (post.title, post.content, post.published, str(id)))
     # updated_post = cursor.fetchone()
     # conn.commit()
-
     post_query_for_update = db.query(models.AllPosts).filter(models.AllPosts.id == id)
     updated_post = post_query_for_update.first()
     if updated_post is None:

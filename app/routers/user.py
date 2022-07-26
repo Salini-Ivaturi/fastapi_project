@@ -1,7 +1,7 @@
-from fastapi import FastAPI, status, HTTPException, Depends, APIRouter
+from fastapi import status, HTTPException, Depends, APIRouter
 from app.schemas import UserLogin, UserOut
 from sqlalchemy.orm import Session
-from app import models, oauth2
+from app import models
 from app.database import get_db
 from app.utils import password_hash
 
